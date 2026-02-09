@@ -16,9 +16,9 @@ function App() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const data = (await get(
+      const data = await get<RawDataBlogPost[]>(
         'https://jsonplaceholder.typicode.com/posts',
-      )) as RawDataBlogPost[]
+      )
 
       const blogPosts: BlogPost[] = data.map((rawPost) => ({
         id: rawPost.id,
